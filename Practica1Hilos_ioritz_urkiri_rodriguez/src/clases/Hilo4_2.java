@@ -7,23 +7,28 @@ package clases;
 
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.swing.JOptionPane;
 
 /**
  *
  * @author iorit
  */
-public class Hilo3 extends Thread{
+public class Hilo4_2 extends Thread{
+    private Integer numN;
+    
+    public Hilo4_2(Integer numN){
+        this.start();
+        this.numN = numN;
+    }
+    
     public void run(){
-        Integer num = Integer.parseInt(JOptionPane.showInputDialog("Introduce un numero"));
-        
-        for (int i = 0; i < num; i++) {
+        for (int i = 0; i < numN; i++) {
             System.out.println(i);
             try {
                 sleep(100);
             } catch (InterruptedException ex) {
-                Logger.getLogger(Hilo3.class.getName()).log(Level.SEVERE, "Error al dormir el hilo", ex);
+                Logger.getLogger(Hilo4_2.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
+        
     }
 }

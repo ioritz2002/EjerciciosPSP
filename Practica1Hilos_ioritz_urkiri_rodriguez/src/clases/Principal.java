@@ -20,8 +20,16 @@ public class Principal {
         t1.start();*/
        
        //Ejercicio2
-       Hilo2 t2 = new Hilo2();
-       t2.start();
+       /*Hilo2 t2 = new Hilo2();
+       t2.start();*/
+       
+       //Ejercicio3
+       /*Hilo3 t3 = new Hilo3();
+       t3.start();*/
+       
+       //Ejercicio4
+       Hilo4_1 t4 = new Hilo4_1();
+       t4.start();
     }
     
 }
