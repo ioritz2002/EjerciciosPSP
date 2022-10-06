@@ -20,7 +20,7 @@ public class Hilo1 extends Thread{
             try {
                 sleep(100);
             } catch (InterruptedException ex) {
-                Logger.getLogger(Hilo1.class.getName()).log(Level.SEVERE, "Error al dormir el hilo", ex);
+                Logger.getLogger(Hilo1.class.getName()).log(Level.SEVERE, "Error en el hilo 1", ex);
             }
         }
     }

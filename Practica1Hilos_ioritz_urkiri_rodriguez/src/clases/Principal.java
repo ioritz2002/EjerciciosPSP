@@ -5,6 +5,8 @@
  */
 package clases;
 
+import java.util.Scanner;
+
 /**
  *
  * @author iorit
@@ -30,6 +32,14 @@ public class Principal {
        //Ejercicio4
        Hilo4_1 t4 = new Hilo4_1();
        t4.start();
+       
+       //Ejercicio5
+       /* while(true){
+           System.out.println("Introduce un numero igual o menor a 10");
+           int numN = new Scanner(System.in).nextInt();
+           
+           
+       }*/
     }
     
 }

@@ -13,7 +13,7 @@ import java.util.logging.Logger;
  * @author iorit
  */
 public class Hilo4_2 extends Thread{
-    private Integer numN;
+    private static Integer numN;
     
     public Hilo4_2(Integer numN){
         this.start();

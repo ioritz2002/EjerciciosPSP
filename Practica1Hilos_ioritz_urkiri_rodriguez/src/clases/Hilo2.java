@@ -26,7 +26,7 @@ public class Hilo2 extends Thread{
                 sleep(100);
             }
         } catch (InterruptedException ex) {
-            Logger.getLogger(Hilo2.class.getName()).log(Level.SEVERE, "Error al dormir el hilo", ex);
+            Logger.getLogger(Hilo2.class.getName()).log(Level.SEVERE, "Error en el hilo 2", ex);
         }
     }
 }
