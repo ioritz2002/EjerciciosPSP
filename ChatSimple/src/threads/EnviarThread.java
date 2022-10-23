@@ -17,32 +17,32 @@ import servidor.KeyboardReader;
  *
  * @author iorit
  */
-public class EnviarThread extends Thread{
+public class EnviarThread extends Thread {
+
     private String text = null;
     private KeyboardReader keyReader = null;
     private Socket socketCliente = null;
     private ObjectOutputStream oos = null;
-    
-    
-    public EnviarThread(Socket socketCliente){
-        try {
-            this.socketCliente = socketCliente;
-            this.oos = new ObjectOutputStream(socketCliente.getOutputStream());
-        } catch (IOException ex) {
-            Logger.getLogger(EnviarThread.class.getName()).log(Level.SEVERE, null, ex);
-        }
+
+    public EnviarThread(Socket socketCliente) {
+        this.socketCliente = socketCliente;
     }
-    
-    public void run(){
+
+    @Override
+    public synchronized void run() {
         keyReader = new KeyboardReader();
-        
-        do {            
+        do {
             try {
+                this.oos = new ObjectOutputStream(socketCliente.getOutputStream());
                 text = keyReader.readString();
+                if (text.equalsIgnoreCase("Salir")) {
+                    System.out.println("Fin de la conversacion");
+                }
                 oos.writeObject(text);
             } catch (IOException ex) {
                 Logger.getLogger(EnviarThread.class.getName()).log(Level.SEVERE, null, ex);
-            }
+            } 
+            
         } while (!text.equalsIgnoreCase("salir"));
     }
 }

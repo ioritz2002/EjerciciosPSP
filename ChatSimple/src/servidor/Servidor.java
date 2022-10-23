@@ -6,15 +6,10 @@
 package servidor;
 
 import java.io.IOException;
-import java.io.InputStream;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
-import java.io.OutputStream;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import servidor.KeyboardReader;
 import threads.EnviarThread;
 import threads.RecibirThread;
 
@@ -26,8 +21,6 @@ public class Servidor {
     private static final int PUERTO = 5000;
     private ServerSocket socketServidor = null;
     private Socket socketCliente = null;
-    private String texto = null;
-    private KeyboardReader lector = null;
     private EnviarThread enviar = null;
     private RecibirThread recibir = null;
     
@@ -38,11 +31,11 @@ public class Servidor {
             socketCliente = socketServidor.accept();
             System.out.println(socketCliente.getInetAddress() + " se ha conectado");
             
-            enviar = new EnviarThread(socketCliente);
-            enviar.start();
-            
             recibir = new RecibirThread(socketCliente);
             recibir.start();
+            
+            enviar = new EnviarThread(socketCliente);
+            enviar.start();
             
         } catch (IOException ex) {
             Logger.getLogger(Servidor.class.getName()).log(Level.SEVERE, null, ex);
@@ -59,6 +52,6 @@ public class Servidor {
     }
     
     public static void main(String[] args){
-        
+        new Servidor();
     }
 }
