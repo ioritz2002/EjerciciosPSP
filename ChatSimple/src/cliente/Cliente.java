@@ -21,8 +21,6 @@ public class Cliente {
     private static final int PUERTO = 5000;
     private static final String HOST = "localhost";
     private Socket socketCliente = null;
-    private String texto = null;
-    private KeyboardReader lector = null;
     private EnviarThread enviar = null;
     private RecibirThread recibir = null;
     
